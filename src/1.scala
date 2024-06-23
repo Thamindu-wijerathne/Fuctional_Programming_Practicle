@@ -11,7 +11,7 @@ object all {
 
   def VolumeOfSphere(radius : Double): Double =  {
     val pi = math.Pi
-    4 / 3 * pi * radius * radius * radius
+    pi * math.pow(radius,3) * 4 / 3
   }
 
   def WholesaleCost(count : Int) : Double = {
@@ -20,10 +20,10 @@ object all {
     var bookPrice = (coverPrice * (1 -dis)) * count
 
     val shippingCost = if (count > 50) {
-      3 + (count - 50) * 0.75
+      3 * 50 + (count - 50) * 0.75
     }
     else {
-      3
+      3 * count
     }
 
     bookPrice + shippingCost
