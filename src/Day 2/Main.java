@@ -31,10 +31,10 @@ public class Main {
 
         // Print the final values of the variables
         System.out.println("Final values:");
-        System.out.println("a = " + a); // Should be 4
-        System.out.println("b = " + b); // Should be 2
-        System.out.println("c = " + c); // Should be 18
-        System.out.println("d = " + d); // Should be 5
-        System.out.println("k = " + k); // Should be 4.3
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+        System.out.println("d = " + d);
+        System.out.println("k = " + k);
     }
 }
