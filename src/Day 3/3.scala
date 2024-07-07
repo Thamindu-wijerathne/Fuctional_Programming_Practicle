@@ -1,13 +1,15 @@
 object day3three {
-  def AverageMean(x: Int, y: Int): Unit = {
-    var z = (x + y) / 2.0
-    println(f"mean = $z%.2f")
+  def arithmeticMean(num1: Int, num2: Int): Double = {
+    val mean = (num1.toDouble + num2.toDouble) / 2.0
+    BigDecimal(mean).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
   }
 
+
   def main(args : Array[String]): Unit = {
-    var num1 = 5
+    var num1 = 1
     var num2 = 2
 
-    AverageMean(num1, num2)
+    var mean = arithmeticMean(num1 , num2)
+    println(f"$mean%.2f")
   }
 }

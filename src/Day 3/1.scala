@@ -1,4 +1,4 @@
-object Day3one {
+object Day3one extends {
   def reverseString(x : String): String = {
     if(x.isEmpty) ""
     else {

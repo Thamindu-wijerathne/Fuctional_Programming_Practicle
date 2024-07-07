@@ -1,15 +1,13 @@
   object p {
-  def power(n:Int,m:Int):Int={ m match{
-    case 0 => 1
-    case _ => n*power(n,m-1)
-  }
-
-  }
-
+    def fib(n: Int): Int = n match {
+      case 0 => 0
+      case 1 => 1
+      case x => fib(x - 1) + fib(x - 2)
+    }
 
     def main(args: Array[String]): Unit = {
-      println(power(2,30))
+      var x = fib(5)
+      println(s"$x")
     }
   }
-
 
