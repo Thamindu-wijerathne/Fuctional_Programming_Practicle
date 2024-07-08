@@ -1,46 +1,44 @@
-import scala.collection.mutable.Map
 
-object Day4One {
-  var Items = Map("soap" -> 25, "snack" -> 30, "pen" -> 15, "book" -> 5, "bread" -> 8)
+object q1{
+  var items=Array("Chocolate","Toffee","Biscuits","Soap","ToothPaste")
+  var qty=Array(100,150,50,30,15)
 
-  def DisplayInventory(): Unit = {
-    Items.keys.foreach{i=>println(i + " : " + Items(i))}
-
-  }
-
-  def RestockItem(name : String, quantity : Int): Unit = {
-    if (Items.contains(name)) {
-      Items(name) = Items(name) + quantity
-      var temp = Items(name)
-      println(s"New value of $name : $temp")
-    }
-    else {
-      println("Item not in the inventory")
+  def displayInventory(items:Array[String],qty:Array[Int]):Unit={
+    if(items.length>0 && qty.length>0){
+      println(items.head+"\t"+qty.head)
+      displayInventory(items.tail,qty.tail)
     }
   }
-
-  def SellItem(name : String, quantity : Int): Unit = {
-    if (Items.contains(name)) {
-      if (Items(name) - quantity > 0) {
-        Items(name) = Items(name) - quantity
-        var temp = Items(name)
-        println(s"New value of $name : $temp")
-
+  def restockItem(item:String,newQty:Int):Unit={(items.indexOf(item)) match{
+    case -1 => println("No Item Found")
+    case x  => qty(x)+=newQty;println("Quantity has been updated new Quantity:"+items(x)+" : "+qty(x))
+  }
+  }
+  def checkStockAvailability(item:String,req:Int):Int={
+    (items.indexOf(item)) match{
+      case -1 => -1
+      case x => qty(x)>=req match{
+        case true => x
+        case false => -2
       }
-      else {
-        println(s"Not enough $name to sale")
-      }
-
     }
-    else {
-      println("Item not in the inventory")
+  }
+  def subFromStock(index:Int,req:Int):Unit= qty(index)-=req
+
+  def sellItem(item:String,req:Int):Unit={
+    checkStockAvailability(item,req) match{
+      case -1 => println("No Item Found")
+      case -2 => println("Stock is not enough")
+      case x => subFromStock(x,req);println("Stock updated")
     }
   }
 
-  def main(args: Array[String]): Unit = {
-    DisplayInventory()
-    RestockItem("soap", 4)
-    SellItem("book", 4)
-    SellItem("bread", 20)
+  def main(args:Array[String]):Unit={
+
+    displayInventory(items,qty)
+    restockItem("Chocolate",100)
+    sellItem("Biscuits",25)
+    displayInventory(items,qty)
+
   }
 }
