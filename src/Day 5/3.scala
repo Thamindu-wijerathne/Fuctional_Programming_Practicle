@@ -15,6 +15,6 @@ object Day5three {
   }
 
   def main(args: Array[String]): Unit = {
-    printFibonacciSequence(5)
+    printFibonacciSequence(7)
   }
 }
