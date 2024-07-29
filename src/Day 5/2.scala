@@ -20,6 +20,7 @@ object Day5two {
     print("Enter Book title : ")
     var title: String = StdIn.readLine();
 
+
     print("Enter Book title : ")
     var author: String = StdIn.readLine();
 
