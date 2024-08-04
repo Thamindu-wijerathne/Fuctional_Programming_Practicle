@@ -5,8 +5,8 @@ object InventorySystem {
 
   // Example inventories
   var inventory1: Map[Int, Product] = Map(
-    101 -> Product("toothBrush", 10, 50.0),
-    102 -> Product("Soap", 5, 30.0),
+    101 -> Product("toothBrush", 10, 100.0),
+    102 -> Product("Soap", 5, 33.0),
     103 -> Product("pen", 8, 25.0)
   )
 
