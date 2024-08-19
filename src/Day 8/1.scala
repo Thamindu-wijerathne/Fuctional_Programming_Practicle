@@ -4,7 +4,7 @@ object Day8one {
   def caesarEncrypt(plaintext: String, shift: Int): String = {
     plaintext.map { char =>
       if (char.isLetter) {
-        val shiftBase = if (char.isLower) 'a' else 'A'
+        val shiftBase = if (char.isLower) 'a' else 'A'   //65 97
         ((char - shiftBase + shift) % 26 + shiftBase).toChar
       }
       else {
